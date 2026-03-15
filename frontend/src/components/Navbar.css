@@ -1,0 +1,217 @@
+/* ── KARIKTAN Navbar ───────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap');
+
+.navbar-topbar {
+  background: var(--espresso, #2C1810);
+  color: rgba(245,239,230,0.65);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.68rem; font-weight: 300;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 0.4rem 1rem;
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+}
+.topbar-sep { color: var(--tan, #C4956A); opacity: 0.6; }
+
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--cream, #FBF7F2);
+  border-bottom: 1px solid var(--border, #D9C9B8);
+  transition: box-shadow 0.3s;
+}
+.navbar--scrolled { box-shadow: 0 2px 16px rgba(44,24,16,0.07); }
+
+.navbar-main {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  height: var(--navbar-h, 56px);
+  padding: 0 2rem; gap: 1.5rem;
+  max-width: 1280px; margin: 0 auto;
+}
+
+/* ── LOGO ─────────────────────────────────────────────── */
+.navbar-logo {
+  text-decoration: none; display: flex;
+  align-items: center; gap: 0.6rem; flex-shrink: 0;
+}
+.navbar-logo-mark {
+  width: 32px; height: 32px;
+  border: 1.5px solid var(--tan, #C4956A);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 600; color: var(--sienna, #8B4A2B);
+}
+.navbar-logo-text { display: flex; flex-direction: column; line-height: 1; gap: 2px; }
+.logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 600;
+  letter-spacing: 0.2em; color: var(--espresso, #2C1810);
+  text-transform: uppercase;
+}
+.logo-sub {
+  font-size: 0.55rem; font-weight: 300;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--tan, #C4956A);
+}
+
+/* ── NAV LINKS ────────────────────────────────────────── */
+.navbar-nav { display: flex; align-items: center; gap: 0; }
+.nav-link {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.73rem; font-weight: 400;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--smoke, #7A6A5F);
+  text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  position: relative; transition: color 0.2s;
+}
+.nav-link::after {
+  content: ''; position: absolute;
+  bottom: -2px; left: 0.6rem; right: 0.6rem;
+  height: 1px; background: var(--sienna, #8B4A2B);
+  transform: scaleX(0); transition: transform 0.2s ease;
+}
+.nav-link:hover { color: var(--espresso, #2C1810); }
+.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+.nav-link.active { color: var(--espresso, #2C1810); font-weight: 500; }
+
+/* ── ACTIONS ──────────────────────────────────────────── */
+.navbar-actions { display: flex; align-items: center; gap: 0.25rem; flex-shrink: 0; }
+
+.navbar-icon-btn {
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: none; cursor: pointer;
+  color: var(--espresso, #2C1810);
+  border-radius: 50%; position: relative;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+}
+.navbar-icon-btn svg { width: 18px; height: 18px; }
+.navbar-icon-btn:hover { background: rgba(139,74,43,0.07); color: var(--sienna, #8B4A2B); }
+
+.cart-badge {
+  position: absolute; top: 2px; right: 2px;
+  min-width: 15px; height: 15px;
+  background: var(--sienna, #8B4A2B); color: #fff;
+  border-radius: 8px; font-size: 0.6rem;
+  font-family: 'Jost', sans-serif; font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 3px;
+}
+
+.navbar-signin-btn {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--sienna, #8B4A2B); text-decoration: none;
+  border: 1px solid var(--sienna, #8B4A2B);
+  padding: 0.38rem 0.9rem; border-radius: 2px;
+  transition: background 0.2s, color 0.2s;
+}
+.navbar-signin-btn:hover { background: var(--sienna, #8B4A2B); color: #fff; }
+
+/* ── PROFILE ──────────────────────────────────────────── */
+.navbar-profile { position: relative; }
+.profile-trigger { cursor: pointer; }
+.profile-avatar {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--espresso, #2C1810); color: var(--tan, #C4956A);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+}
+.profile-dropdown {
+  position: absolute; top: calc(100% + 10px); right: 0;
+  min-width: 185px; background: var(--cream, #FBF7F2);
+  border: 1px solid var(--border, #D9C9B8); border-radius: 2px;
+  box-shadow: 0 6px 24px rgba(44,24,16,0.1);
+  overflow: hidden; animation: dropIn 0.16s ease;
+}
+@keyframes dropIn { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+.profile-dropdown-header {
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--border, #D9C9B8);
+  background: var(--parchment, #F5EFE6);
+}
+.pd-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem; font-weight: 500; color: var(--espresso, #2C1810);
+}
+.pd-role {
+  font-size: 0.62rem; font-weight: 300;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--tan, #C4956A); margin-top: 1px;
+}
+.profile-dropdown-body { display: flex; flex-direction: column; }
+.pd-link {
+  font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 400;
+  color: var(--espresso, #2C1810); text-decoration: none;
+  padding: 0.65rem 1.1rem; border: none; background: none;
+  text-align: left; cursor: pointer;
+  transition: background 0.15s; display: block;
+}
+.pd-link:hover { background: var(--parchment, #F5EFE6); }
+.pd-link--admin { color: var(--sienna, #8B4A2B); font-weight: 500; }
+.pd-link--logout { color: #888; border-top: 1px solid var(--border, #D9C9B8); }
+.pd-link--logout:hover { color: #c0392b; background: #fff5f5; }
+
+/* ── BURGER ───────────────────────────────────────────── */
+.navbar-burger {
+  display: none; flex-direction: column; gap: 4px;
+  background: none; border: none; cursor: pointer; padding: 5px;
+}
+.navbar-burger span {
+  display: block; width: 20px; height: 1.5px;
+  background: var(--espresso, #2C1810);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.navbar-burger.open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.navbar-burger.open span:nth-child(2) { opacity: 0; }
+.navbar-burger.open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 960px) {
+  .navbar-main { padding: 0 1.25rem; }
+  .navbar-nav {
+    display: none; position: fixed;
+    top: calc(var(--topbar-h, 30px) + var(--navbar-h, 56px));
+    left: 0; right: 0;
+    background: var(--cream, #FBF7F2);
+    border-bottom: 1px solid var(--border, #D9C9B8);
+    flex-direction: column; align-items: flex-start;
+    padding: 0.75rem 1.25rem 1.25rem; gap: 0;
+    box-shadow: 0 6px 20px rgba(44,24,16,0.07);
+  }
+  .navbar-nav--open { display: flex; }
+  .nav-link { padding: 0.65rem 0; width: 100%; border-bottom: 1px solid var(--border, #D9C9B8); }
+  .nav-link::after { display: none; }
+  .navbar-burger { display: flex; }
+  .logo-sub { display: none; }
+}
+
+/* Add to bottom of Navbar.css */
+
+/* Profile dropdown header with avatar */
+.profile-dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--border, #D9C9B8);
+  background: var(--parchment, #F5EFE6);
+}
+
+/* Nav avatar — shows profile pic or initials */
+.nav-avatar {
+  border-radius: 50%;
+  background: var(--espresso, #2C1810);
+  color: var(--tan, #C4956A);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}

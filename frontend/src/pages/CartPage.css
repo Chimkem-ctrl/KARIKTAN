@@ -1,0 +1,125 @@
+/* ── Cart Page ─────────────────────────────────────────────────── */
+.cart-root { max-width: 1100px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+
+.cart-header { margin-bottom: 2rem; }
+.cart-eyebrow { font-size: 0.62rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tan,#C4956A); margin-bottom: 0.4rem; }
+.cart-title { font-family: 'Cormorant Garamond',serif; font-size: 2rem; font-weight: 500; color: var(--espresso,#2C1810); }
+.cart-count { font-size: 0.82rem; font-weight: 300; color: var(--smoke,#7A6A5F); margin-top: 0.25rem; }
+
+.cart-layout { display: grid; grid-template-columns: 1fr 320px; gap: 2.5rem; align-items: start; }
+
+/* Items */
+.cart-items { display: flex; flex-direction: column; gap: 0; }
+.cart-items-header { display: flex; justify-content: flex-end; margin-bottom: 0.75rem; }
+.cart-clear-btn { background: none; border: none; font-family: 'Jost',sans-serif; font-size: 0.75rem; color: var(--smoke,#7A6A5F); cursor: pointer; text-decoration: underline; }
+.cart-clear-btn:hover { color: #EF4444; }
+
+.cart-item {
+  display: grid; grid-template-columns: 80px 1fr auto;
+  gap: 1.25rem; align-items: center;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border,#D9C9B8);
+}
+.cart-item-img { width: 80px; height: 80px; border-radius: 3px; overflow: hidden; background: var(--parchment,#F5EFE6); flex-shrink: 0; }
+.cart-item-img img { width: 100%; height: 100%; object-fit: cover; }
+.cart-item-cat { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tan,#C4956A); margin-bottom: 0.2rem; }
+.cart-item-name { font-family: 'Cormorant Garamond',serif; font-size: 1rem; font-weight: 500; color: var(--espresso,#2C1810); margin-bottom: 0.25rem; }
+.cart-item-price { font-size: 0.82rem; color: var(--smoke,#7A6A5F); font-weight: 300; }
+
+.cart-item-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
+.cart-qty { display: flex; align-items: center; border: 1px solid var(--border,#D9C9B8); border-radius: 2px; overflow: hidden; }
+.cart-qty button { width: 30px; height: 30px; border: none; background: var(--parchment,#F5EFE6); font-size: 1rem; color: var(--espresso,#2C1810); cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; }
+.cart-qty button:hover:not(:disabled) { background: var(--tan-lt,#E8D5BC); }
+.cart-qty button:disabled { opacity: 0.4; cursor: not-allowed; }
+.cart-qty span { width: 34px; text-align: center; font-size: 0.85rem; border-left: 1px solid var(--border,#D9C9B8); border-right: 1px solid var(--border,#D9C9B8); }
+.cart-item-subtotal { font-family: 'Cormorant Garamond',serif; font-size: 1rem; font-weight: 500; color: var(--sienna,#8B4A2B); }
+.cart-remove-btn { background: none; border: none; font-size: 1.2rem; color: var(--smoke,#7A6A5F); cursor: pointer; line-height: 1; padding: 2px; transition: color 0.2s; }
+.cart-remove-btn:hover { color: #EF4444; }
+
+/* Summary */
+.cart-summary {
+  background: #fff; border: 1px solid var(--border,#D9C9B8);
+  border-radius: 3px; padding: 1.5rem;
+  position: sticky; top: 96px;
+}
+.cart-summary-title { font-family: 'Cormorant Garamond',serif; font-size: 1.1rem; font-weight: 500; color: var(--espresso,#2C1810); margin-bottom: 1.1rem; }
+.cart-summary-rows { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.75rem; }
+.summary-row { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 300; color: var(--smoke,#7A6A5F); }
+.summary-row span:first-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 60%; }
+.cart-summary-divider { height: 1px; background: var(--border,#D9C9B8); margin: 0.75rem 0; }
+.summary-total { display: flex; justify-content: space-between; font-size: 1rem; font-weight: 500; color: var(--espresso,#2C1810); margin-bottom: 0.4rem; }
+.cart-summary-note { font-size: 0.72rem; font-weight: 300; color: var(--smoke,#7A6A5F); margin-bottom: 1.1rem; }
+.cart-checkout-btn {
+  width: 100%; padding: 0.8rem;
+  background: var(--sienna,#8B4A2B); color: #fff;
+  border: none; border-radius: 2px;
+  font-family: 'Jost',sans-serif; font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer; transition: background 0.2s;
+  margin-bottom: 0.85rem;
+}
+.cart-checkout-btn:hover { background: var(--sienna-dk,#6B3520); }
+.cart-continue-link { display: block; text-align: center; font-size: 0.78rem; color: var(--smoke,#7A6A5F); text-decoration: none; }
+.cart-continue-link:hover { color: var(--sienna,#8B4A2B); }
+
+/* Empty */
+.cart-empty { text-align: center; padding: 5rem 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.85rem; }
+.cart-empty-icon { font-size: 3rem; }
+.cart-empty h2 { font-family: 'Cormorant Garamond',serif; font-size: 1.75rem; font-weight: 400; color: var(--espresso,#2C1810); }
+.cart-empty p { font-size: 0.88rem; font-weight: 300; color: var(--smoke,#7A6A5F); }
+.cart-shop-btn { margin-top: 0.5rem; padding: 0.7rem 1.75rem; background: var(--sienna,#8B4A2B); color: #fff; border-radius: 2px; text-decoration: none; font-family: 'Jost',sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.2s; }
+.cart-shop-btn:hover { background: var(--sienna-dk,#6B3520); }
+
+@media (max-width: 768px) {
+  .cart-layout { grid-template-columns: 1fr; }
+  .cart-summary { position: static; }
+  .cart-item { grid-template-columns: 68px 1fr; }
+  .cart-item-actions { flex-direction: row; align-items: center; grid-column: 1/-1; }
+}
+
+/* ORDER RESTRICTION: IF NO ADDRESS */
+
+.cart-profile-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+  border-radius: 2px;
+  padding: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.cart-warning-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: #D97706;
+}
+
+.cart-warning-title {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #92400E;
+  margin-bottom: 0.25rem;
+}
+
+.cart-warning-text {
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: #92400E;
+  line-height: 1.55;
+  margin-bottom: 0.5rem;
+}
+
+.cart-warning-link {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--sienna, #8B4A2B);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+}
+
+.cart-warning-link:hover {
+  text-decoration: underline;
+}
